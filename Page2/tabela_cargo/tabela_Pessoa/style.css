@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian&family=Quicksand:wght@320;400;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+	font-family: 'Quicksand', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #10164E;
+}
+
+.table{
+    width: 80%;
+    position: relative;
+}
+
+tr{
+    height: 30px;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+
+}
+
+th{
+    
+    width: 1%;
+    color: #fff;
+    background-color: #FF6E32;
+}
+
+td{
+    background-color: #fff;
+    padding: 5px;
+}
+
+td .n{
+    font-weight: 700;
+}
