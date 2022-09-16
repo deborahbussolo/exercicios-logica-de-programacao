@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/javascript.js"></script>
+    <title>Tabela - Cargo</title>
+</head>
+<body>
+    <main>
+        <div class="title">
+            <h2>Cargos</h2>
+            <span>Lista de cargos da minha area</span>
+        </div>
+        <div class="card">
+            <div class="lineInput">
+                <label>Cargo</label>
+                <input type="text" id="cargo" placeholder="Nome do cargo">
+            </div>
+            <div class="lineInput">
+                <label>Salario</label>
+                <input type="text" id="salario" placeholder="Salario do cargo">
+            </div>
+            <button onclick="cargo.salvar()">Salvar</button>
+            <button onclick="cargo.cancelar()">Cancelar</button>
+        </div>
+        <div class="content">
+            <table>
+                <thead>
+                    <th class="center">ID</th>
+                    <th>Cargo</th>
+                    <th>Salario Padrão</th>
+                    <th class="center">Ações</th>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>
+    </main>   
+</body>
+</html>

@@ -1,0 +1,7 @@
+1) Crie uma tabela "Pessoa" com os seguintes campos:CPF, Nome Completo, Idade (o correto seria Data de Nascimento, mas para este teste IDADE está adequado) e telefone. Crie uma chave primária de acordo com o que você achar apropriado e justifique sua escolha.
+
+2) Crie uma tabela "Cargos" com um campo cargo e outro campo "Salário Padrão", além de outra tabela para vincular um cargo a uma pessoal, bem como um campo "Salário". O campo salário pode ser diferente do campo "Salário Padrão", e uma pessoa pode ter mais de um cargo, em seguida alimente as tabelas com informações
+Criar uma tabela com cargos e os salários padrões daquele cargo, fazer OUTRA tabela com pessoas e esta receber um ou mais cargos, e nesta tabela ter o salário da pessoa.
+
+
+3) Crie um relatório com as informações da questão anterior, pode ser apenas um SELECT mostrando o nome das pessoas e o total de seus salários e a soma do "salário padrão" correspondente ao(s) cargo(s) ocupados pela pessoa. Utilizando as tabelas "Pessoa", "Cargos" e a outra tabela de vinculação. O relatório deve fazer uso dos recursos JOIN e/ou LEFT JOIN, WHERE, ORDER BY…
