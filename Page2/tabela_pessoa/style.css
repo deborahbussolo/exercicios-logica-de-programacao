@@ -1,8 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian&family=Quicksand:wght@320;400;600&display=swap');
-
-/* #10164E
-#FF6E32 */
-
 *{
     margin: 0;
     padding: 0;
@@ -63,7 +58,8 @@ input:focus, input:hover, textarea:focus, textarea:hover {
 }
 
 button {
-    width: 100px;
+    margin: 20px auto;
+    width: 150px;
     height: 40px;
     font-weight: 600;
     margin-right: 20px;
