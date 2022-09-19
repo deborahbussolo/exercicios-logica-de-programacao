@@ -1,5 +1,19 @@
 // 2) Crie uma tabela "Cargos" com um campo cargo e outro campo "Salário Padrão", além de outra tabela para vincular um cargo a uma pessoal, bem como um campo "Salário". O campo salário pode ser diferente do campo "Salário Padrão", e uma pessoa pode ter mais de um cargo, em seguida alimente as tabelas com informações
 // Criar uma tabela com cargos e os salários padrões daquele cargo, fazer OUTRA tabela com pessoas e esta receber um ou mais cargos, e nesta tabela ter o salário da pessoa.
+var dict = new Map();
+
+const nome = [
+    'Alana Ferreira',
+     'Carolina Mendes',
+     'Eloah Mendes',
+     'Pietro Pires',
+     'Clarice Peixoto',
+     'Maria Eduarda Ferreira',
+     'Bryan da Rocha',
+     'Kevin Ferreira',
+     'Stella Novaes',
+     'Carolina Nascimento'
+]
 
 class Cargo {
     constructor() {
@@ -19,7 +33,7 @@ class Cargo {
     }
 
     listaTabela() {
-        let tbody = document.getElementById('tbody');
+        let tbody = document.getElementById('tbody_cargo');
         tbody.innerText = '';
         
         for(let i = 0; i < this.arrayCargos.length; i++) {
@@ -30,6 +44,8 @@ class Cargo {
             let td_salario = tr.insertCell();
             let td_acoes = tr.insertCell();
 
+            var elem = document.createElement('select')
+
             td_id.innerText = this.arrayCargos[i].id;
             td_cargo.innerText = this.arrayCargos[i].cargo;
             td_salario.innerText = 'R$ ' + this.arrayCargos[i].salario;
@@ -39,7 +55,7 @@ class Cargo {
 
 
             let imgTrash = document.createElement('img');
-            imgTrash.src =  '/Page2/img/trash.png'
+            imgTrash.src = '/Page2/img/trash.png';
             imgTrash.setAttribute('onclick','cargo.deletar('+this.arrayCargos[i].id +')');
             //<td><img></td>
             td_acoes.appendChild(imgTrash);
@@ -69,11 +85,11 @@ class Cargo {
     }
 
     deletar(id) {
-        if(confirm('DELETAR item '+id+' ?')){
+        if((swal('ITEM '+id+' DELETADO !'))){
             for(let i = 0; i < this.arrayCargos.length; i++){
                 if(this.arrayCargos[i].id == id){
                     this.arrayCargos.splice(i , 1);
-                    tbody.deleteRow(i);
+                    tbody_cargo.deleteRow(i);
                 }
             }
         }
@@ -83,15 +99,15 @@ class Cargo {
         let msg = '';
 
         if(cargo.cargo == '') {
-            msg += '- informe o nome do cargo.\n';
+            msg += '- Informe o NOME do cargo.\n';
         }
 
         if(cargo.salario == '') {
-            msg += '- informe o valor do salario.\n';
+            msg += '\n- Informe o VALOR do salario.\n';
         }
 
         if(msg != '') {
-            alert(msg);
+            swal(msg);
             return false
         }
 
@@ -99,4 +115,4 @@ class Cargo {
     }
 }
 
-var cargo = new Cargo() 
+var cargo = new Cargo();

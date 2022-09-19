@@ -1,4 +1,6 @@
-const nomes = [
+var dict = new Map();
+
+const nome = [
     'Alana Ferreira',
      'Carolina Mendes',
      'Eloah Mendes',
@@ -8,7 +10,8 @@ const nomes = [
      'Bryan da Rocha',
      'Kevin Ferreira',
      'Stella Novaes',
-     'Carolina Nascimento'];
+     'Carolina Nascimento'
+]
 
 const cpf =[
     '432.378.838-08',
@@ -23,7 +26,7 @@ const cpf =[
     '246.073.101-75',
 ]
 
-const idades =[
+const idade =[
     '25',
     '82',
     '67',
@@ -36,7 +39,7 @@ const idades =[
     '18',
 ]
 
-const telefones = [
+const telefone = [
      '(92) 2251-9374',
      '(62) 2999-4656',
      '(32) 2876-8574',
@@ -46,29 +49,36 @@ const telefones = [
      '(79) 3476-4318',
      '(66) 2840-0198',
      '(44) 2607-1873',
-     '(68) 2532-2215'];
+     '(68) 2532-2215'
+]
 
+for(let i = 0; i < 10; i++){
+    dict.set(nome[i], [cpf[i],idade[i],telefone[i]])
+}
 
-nomes.sort();
-console.log(nomes);
+nome.sort();
 
 class Pessoa {
     constructor() {
         this.i = 0;
-        this.arrayNomes= nomes;
-        this.arrayCPFs = cpf;
-        this.arrayIdades = idades;
-        this.arrayTelefones = telefones;
     }
     
-    gerar() {
+    gerar1() {
         if(this.i < 10){
             this.listaTabela(this.i);
             this.i++; 
         }
     }
 
+    gerarAll() {
+        if(this.i < 10)
+        for(this.i = this.i; this.i < 10; this.i++){
+            this.listaTabela(this.i);
+        }
+    }
+    
     listaTabela(i) {
+
         let tbody = document.getElementById('tbody');
 
         let tr= tbody.insertRow();
@@ -79,15 +89,15 @@ class Pessoa {
         let td_idade = tr.insertCell();
         let td_telefone = tr.insertCell();
 
-        //td_id.innerText = id;
-        td_nome.innerText = this.arrayNomes[i];
-        td_cpf.innerText = this.arrayCPFs[i];
-        td_idade.innerText = this.arrayIdades[i];
-        td_telefone.innerText = this.arrayTelefones[i];
+        td_id.innerText = i+1;
+        td_nome.innerText = nome[i];
+        td_cpf.innerText = dict.get(nome[i])[0];
+        td_idade.innerText = dict.get(nome[i])[1];
+        td_telefone.innerText = dict.get(nome[i])[2];
 
         td_idade.classList.add('center');
+        td_id.classList.add('center');
         }
 }
-
 
 var pessoa = new Pessoa()
