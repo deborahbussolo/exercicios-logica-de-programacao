@@ -129,6 +129,7 @@ header{
 }
 
 .swal-text{
+    line-height: 25px;
     width: 80%;
     color: #0C223D;
     letter-spacing: 1px;

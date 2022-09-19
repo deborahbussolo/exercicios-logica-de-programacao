@@ -39,7 +39,6 @@ for(let i = 0; i < 6; i++){
     dict_cargo.set(cargo[i], salario[i])
 }
 
-console.log(dict_cargo)
 
 // ORGANIZANDO EM ORDEM ALFABETICA
 cargo.sort();
@@ -122,13 +121,12 @@ class Pessoa  {
                 if(this.i < 3){
                     pessoa.cargo = cargo[this.i+3];
                     pessoa.salario = dict_cargo.get(cargo[this.i+3]);
-                    console.log(pessoa)
                 }
                 if(this.i >= 4){
                     pessoa.cargo = cargo[this.i-4];
-                    pessoa.salario = dict_cargo.get(cargo[this.i-4]);
-                    console.log(pessoa)  
+                    pessoa.salario = dict_cargo.get(cargo[this.i-4]); 
                 }
+
                 
                 let tr= tbody_pessoa.insertRow();
 
@@ -144,6 +142,7 @@ class Pessoa  {
             //ADICIONANDO CLASSE DE FORMA DINAMICA
                 td_nome.classList.add('pointer');
 
+
             //CRIANDO UMA FUNÇÃO PARA SELECIONAR UMA LINHA
                 var createClickHandler = function(row) {
                     return function() {
@@ -153,15 +152,18 @@ class Pessoa  {
                         var nome_pessoa = cell0.innerHTML;
                         var nome_cargo = cell1.innerHTML;
                         var valor_cargo = cell2.innerHTML;
+  
                     // MOSTRANDO RELATORIO DA LINHA SELECIONADA
                         swal('Relatorio Geral:\n'+ '\nNome: '+ nome_pessoa +"\nCargo: " + nome_cargo + '\nSalario: ' + valor_cargo);
                     };
                 };
+
                 tr.onclick = createClickHandler(tr);
             }
         }
     }   
 }
+
 
 var profissao = new Cargo()
 var pessoa = new Pessoa()
