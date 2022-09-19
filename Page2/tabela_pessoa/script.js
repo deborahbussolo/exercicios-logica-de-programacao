@@ -1,5 +1,7 @@
+//DICIONARIO
 var dict = new Map();
 
+//INFORMAÇÕES GERAIS
 const nome = [
     'Alana Ferreira',
      'Carolina Mendes',
@@ -52,35 +54,40 @@ const telefone = [
      '(68) 2532-2215'
 ]
 
+//ADICIONANDO AS INFORMAÇÕES EM UM DICIONARIO 
 for(let i = 0; i < 10; i++){
     dict.set(nome[i], [cpf[i],idade[i],telefone[i]])
 }
 
+//ORGANIZANDO EM ORDEM ALFABETICA
 nome.sort();
 
+//CLASSE PESSOA
 class Pessoa {
     constructor() {
         this.i = 0;
     }
-    
+
+//MOSTRA APENAS UMA PESSOA NA LISTA POR VEZ
     gerar1() {
         if(this.i < 10){
             this.listaTabela(this.i);
             this.i++; 
         }
     }
-
+//MOSTRA TODAS AS PESSOAS NA LISTA
     gerarAll() {
         if(this.i < 10)
         for(this.i = this.i; this.i < 10; this.i++){
             this.listaTabela(this.i);
         }
     }
-    
+
+// CRIANDO A LISTA DE FORMA DINAMICA
     listaTabela(i) {
 
         let tbody = document.getElementById('tbody');
-
+    //ADICIONANDO LINHAS E COLUNAS
         let tr= tbody.insertRow();
 
         let td_id = tr.insertCell();
@@ -89,12 +96,14 @@ class Pessoa {
         let td_idade = tr.insertCell();
         let td_telefone = tr.insertCell();
 
+    //ADICIONANDO AS INFORMAÇÕES DAS CELULAS
         td_id.innerText = i+1;
         td_nome.innerText = nome[i];
         td_cpf.innerText = dict.get(nome[i])[0];
         td_idade.innerText = dict.get(nome[i])[1];
         td_telefone.innerText = dict.get(nome[i])[2];
 
+    //ADICIONANDO CLASSE DE FORMA DINAMICA
         td_idade.classList.add('center');
         td_id.classList.add('center');
         }

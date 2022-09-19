@@ -1,7 +1,7 @@
-// 2) Crie uma tabela "Cargos" com um campo cargo e outro campo "Salário Padrão", além de outra tabela para vincular um cargo a uma pessoal, bem como um campo "Salário". O campo salário pode ser diferente do campo "Salário Padrão", e uma pessoa pode ter mais de um cargo, em seguida alimente as tabelas com informações
-// Criar uma tabela com cargos e os salários padrões daquele cargo, fazer OUTRA tabela com pessoas e esta receber um ou mais cargos, e nesta tabela ter o salário da pessoa.
+//DICIONARIO
 var dict = new Map();
 
+//INFORMAÇÕES GERAIS
 const nome = [
     'Alana Ferreira',
      'Carolina Mendes',
@@ -14,13 +14,14 @@ const nome = [
      'Stella Novaes',
      'Carolina Nascimento'
 ]
-
+//CLASSE CARGO
 class Cargo {
     constructor() {
         this.id = 1;
         this.arrayCargos = [];
     }
 
+//CHAMADA DAS FUNCÕES PARA SALVAR O VALOR DO INPUT
     salvar() {
         let cargo = this.lerDados();
 
@@ -32,10 +33,12 @@ class Cargo {
         this.cancelar();
     }
 
+// CRIANDO A LISTA DE FORMA DINAMICA
     listaTabela() {
         let tbody = document.getElementById('tbody_cargo');
         tbody.innerText = '';
         
+    //CRIANDO LINHAS E COLUNAS
         for(let i = 0; i < this.arrayCargos.length; i++) {
             let tr = tbody.insertRow();
 
@@ -45,15 +48,16 @@ class Cargo {
             let td_acoes = tr.insertCell();
 
             var elem = document.createElement('select')
-
+        //ADICIONANDO DINAMICAMENTE AS INFORMAÇÕES DAS CELULAS
             td_id.innerText = this.arrayCargos[i].id;
             td_cargo.innerText = this.arrayCargos[i].cargo;
             td_salario.innerText = 'R$ ' + this.arrayCargos[i].salario;
-
+        
+        //ADICIONANDO CLASSE DE FORMA DINAMICA
             td_id.classList.add('center');
             td_acoes.classList.add('center');
 
-
+        //ELEMENTE PARA APAGAR A LINHA
             let imgTrash = document.createElement('img');
             imgTrash.src = '/Page2/img/trash.png';
             imgTrash.setAttribute('onclick','cargo.deletar('+this.arrayCargos[i].id +')');
@@ -63,12 +67,13 @@ class Cargo {
             console.log(this.arrayCargos)
         }
     }
-
+//ADICIONANDO O CARGO PARA A LISTA
     adicionar(cargo) {
         this.arrayCargos.push(cargo);
         this.id++;
     }
 
+//LENDO OS DADOS DO INPUT
     lerDados() {
         let cargo = {}
 
@@ -79,11 +84,13 @@ class Cargo {
         return cargo;
     }
 
+//APAGA OS VALORES QUE ESTÃO NO INPUT
     cancelar() {
         document.getElementById('cargo').value = '';
         document.getElementById('salario').value = '';
     }
 
+//APAGA A LINHA SELECIONADA, PELO ID
     deletar(id) {
         if((swal('ITEM '+id+' DELETADO !'))){
             for(let i = 0; i < this.arrayCargos.length; i++){
@@ -95,6 +102,7 @@ class Cargo {
         }
     }
 
+//CONFERE SE O CAMPO ESTÁ PREENCHIDO OU NÃO
     validaCampo(cargo) {
         let msg = '';
 

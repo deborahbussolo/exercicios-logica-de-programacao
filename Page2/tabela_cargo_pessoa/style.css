@@ -91,10 +91,12 @@ table{
 .table_pessoa{
     padding-bottom: 40px;
 }
+
 tr{
     background-color: #fff;
     color: #0C223D;
 }
+
 tr:hover{
     cursor: pointer;
     border: none;
@@ -115,7 +117,6 @@ table th, td{
     font-weight: 600;
 }
 
-
 table td img{
     border: none;
     width: 22px;
@@ -130,7 +131,7 @@ header{
 
 .swal-text{
     line-height: 25px;
-    width: 80%;
+    width: 90%;
     color: #0C223D;
     letter-spacing: 1px;
     font-size: 16px;
